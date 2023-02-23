@@ -53,3 +53,9 @@ asyncSubject$.subscribe(val =>console.log('asyncSubject',val));
 asyncSubject$.next(4); //no recibo el cuatro
 
 setTimeout(()=>asyncSubject$.complete(),3000) //se completa y recibe el valor
+
+
+//Es un patron definir los subjects como privados
+//y solo exponer el observable, ya de esta forma 
+//restringimos la posiblidad de q modifiquen el valor afuera del servicio
+const subjectObservable$ = subject$.asObservable();
